@@ -1,8 +1,59 @@
 #import library
+list_book = []
 
 #ตัวฟังก์ชั่นเพิ่มหนังสือ
 def add_book():
     print(f"\n--- เพิ่มหนังสือ ---")
+
+    book_id = input(f"กรอกข้อมูล Book ID: ").strip()
+    
+    if not book_id:
+        print(f"กรุณากรอกข้อมูลให้ถูกต้อง")
+        return
+    
+    for book in list_book:
+        if book["Book ID"] == book_id:
+            print(f"Book ID: {book_id} มีอยู่แล้วในระบบ")
+            return
+        
+    
+    book_name = input(f"กรอกข้อมูล ชื่อหนังสือ: ").strip()
+    if not book_name:
+        print(f"กรุณากรอกข้อมูลให้ถูกต้อง")
+        return
+    book_author = input(f"กรอกข้อมูล คนเขียน: ").strip()
+    if not book_author:
+        print(f"กรุณากรอกข้อมูลให้ถูกต้อง")
+        return
+    while True:
+        try:
+            book_copies = int(input(f"กรอกข้อมูล จำนวนเล่มที่เพิ่ม:"))
+            
+            if book_copies <= 0:
+                print(f"กรุณากรอกข้อมูลที่เป็นตัวเลขจำนวนเต็มบวกเท่านั้นและมากกว่า 0")
+                continue
+            
+            break
+            
+        except ValueError:
+            print(f"กรุณากรอกข้อมูลที่เป็นตัวเลขจำนวนเต็มบวกเท่านั้นและมากกว่า 0")
+    
+    newbook = {
+        "book_id": book_id,
+        "book_name": book_name,
+        "book_author": book_author,
+        "book_copies": book_copies,
+        "available_copies": book_copies
+    }
+    list_book.append(newbook)
+
+    print(f"\n--- เพิ่มหนังสือเรียบร้อยแล้ว ---")
+    print(f"--- ข้อมูลหนังสือที่เพิ่ม ---")
+    print(f"Book ID: {book_id}")
+    print(f"ชื่อหนังสือ: {book_name}")
+    print(f"คนเขียน: {book_author}")
+    print(f"จำนวนเล่มที่เพิ่ม: {book_copies}")
+
 
 
 #ตัวฟังก์ชั่นลบหนังสือ
@@ -12,6 +63,7 @@ def delete_book():
 #ตัวฟังก์ชั่นค้นหาหนังสือ
 def search_book():
     print(f"\n--- ค้นหาหนังสือ ---")
+    
 #ตัวฟังก์ชั่นยืมหนังสือ
 def borrow_book():
     print(f"\n--- ยืมหนังสือ ---")
@@ -19,7 +71,6 @@ def borrow_book():
 #ตัวฟังก์ชั่นคืนหนังสือ
 def return_book():
     print(f"\n--- คืนหนังสือ ---")
-
 
 
 
