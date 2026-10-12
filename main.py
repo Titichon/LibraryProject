@@ -1,4 +1,7 @@
 #import library
+import keyword
+
+
 list_book = []
 borrow_records = []
 
@@ -12,15 +15,15 @@ def add_book():
 
     print(f"\n--- เพิ่มหนังสือ ---")
 
-    book_id = input(f"กรอกข้อมูล Book ID: ").strip()
+    book_id = input(f"กรอกข้อมูล book_id: ").strip()
     
     if not book_id:
         print(f"กรุณากรอกข้อมูลให้ถูกต้อง")
         return
     
     for book in list_book:
-        if book["Book ID"] == book_id:
-            print(f"Book ID: {book_id} มีอยู่แล้วในระบบ")
+        if book["book_id"] == book_id:
+            print(f"book_id: {book_id} มีอยู่แล้วในระบบ")
             return
         
     
@@ -56,7 +59,7 @@ def add_book():
 
     print(f"\n--- เพิ่มหนังสือเรียบร้อยแล้ว ---")
     print(f"--- ข้อมูลหนังสือที่เพิ่ม ---")
-    print(f"Book ID: {book_id}")
+    print(f"book_id: {book_id}")
     print(f"ชื่อหนังสือ: {book_name}")
     print(f"คนเขียน: {book_author}")
     print(f"จำนวนเล่มที่เพิ่ม: {book_copies}")
@@ -71,6 +74,38 @@ def delete_book():
 def search_book():
     print(f"\n--- ค้นหาหนังสือ ---")
     
+    if not list_book:
+        print(f"\n--- ไม่มีหนังสือในระบบ ---")
+        return
+    
+    keyword = input(f"กรอกชื่อหนังสือที่ต้องการค้นหา:").strip()
+    
+    if not keyword:
+        print(f"กรุณากรอกคำค้นหา")
+        return
+    
+    if keyword.lower() in list_book[0]["book_name"].lower():
+        print("พบรายการหนังสือ:")
+    
+    found = False
+    
+    for book in list_book:
+        print(book["book_name"])
+        if keyword.lower() in book["book_name"].lower():
+            found = True
+            print(f"ชื่อหนังสือ: {book['book_name']}")
+            
+    if not found:
+        print(f"ไม่พบหนังสือที่ค้นหา")
+        return
+
+    print(f"รหัสหนังสือ: {list_book[0]['book_id']}")
+    print(f"ชื่อหนังสือ: {list_book[0]['book_name']}")
+    print(f"คนเขียน: {list_book[0]['book_author']}")
+    print(f"จำนวนเล่มที่มี: {list_book[0]['book_copies']}")
+    print("---"*20)
+
+
 #ตัวฟังก์ชั่นยืมหนังสือ
 def borrow_book():
     print(f"\n--- ยืมหนังสือ ---")
