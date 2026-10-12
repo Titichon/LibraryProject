@@ -1,8 +1,15 @@
 #import library
 list_book = []
+borrow_records = []
+
 
 #ตัวฟังก์ชั่นเพิ่มหนังสือ
 def add_book():
+    global book_copies
+    global book_id
+    global book_author
+    global book_name
+
     print(f"\n--- เพิ่มหนังสือ ---")
 
     book_id = input(f"กรอกข้อมูล Book ID: ").strip()
@@ -68,6 +75,52 @@ def search_book():
 def borrow_book():
     print(f"\n--- ยืมหนังสือ ---")
 
+    book_id = input("กรอกรหัสหนังสือ:").strip()
+
+    if not book_id:
+        print("กรุณากรอกรหัสหนังสือ")
+        return 
+    selected_book = None
+
+    for book in list_book:
+        if book["book_id"] == book_id:
+            selected_book = book
+            break
+
+    if selected_book is None:
+        print("ไม่พบหนังสือเล่มนี้ในระบบ")
+        return
+
+    if selected_book["available_copies"] <= 0:
+        print("หนังสือเล่มนี้ถูกจองแล้ว")
+        return
+
+    selected_book["available_copies"] -= 1
+
+    reservation = {
+        "name": name,
+        "book_id": selected_book[ "book_id"],
+        "book_name": selected_book["book_name"],
+        "status": "reserved"
+    }
+
+    borrow_records.append(reservation)
+    print(f"---สถานะการยืม---")
+    print(f"ผู้ใช้ {name}")
+    print(f"จอง {selected_book['book_name']} สำเร็จ")
+    print(f"ผู้แต่ง {selected_book['book_author']}")
+    print(f"จำนวนหนังสือที่คงเหลือ:{selected_book['available_copies']}")
+    
+
+
+
+
+
+
+
+
+
+
 #ตัวฟังก์ชั่นคืนหนังสือ
 def return_book():
     print(f"\n--- คืนหนังสือ ---")
@@ -76,6 +129,7 @@ def return_book():
 
 
 def main_ui():
+    global name
     while True:
         name = input(f"\nUser name ('exit' to quite): ").strip()
         if name.lower() == "exit":
