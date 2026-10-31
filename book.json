@@ -1,1 +1,44 @@
-[]
+[
+    {
+        "book_id": "B33",
+        "book_name": "lokoz",
+        "book_author": "kxpxs,",
+        "book_copies": 1,
+        "available_copies": 0
+    },
+    {
+        "book_id": "B23",
+        "book_name": "pop",
+        "book_author": "pp",
+        "book_copies": 2,
+        "available_copies": 2
+    },
+    {
+        "book_id": "B89",
+        "book_name": "oppo",
+        "book_author": "ooo",
+        "book_copies": 3,
+        "available_copies": 3
+    },
+    {
+        "book_id": "B005",
+        "book_name": "Jhon",
+        "book_author": "jame",
+        "book_copies": 5,
+        "available_copies": 4
+    },
+    {
+        "book_id": "B007",
+        "book_name": "Monpapaya",
+        "book_author": "kon",
+        "book_copies": 1,
+        "available_copies": 1
+    },
+    {
+        "book_id": "B006",
+        "book_name": "asd",
+        "book_author": "dsa",
+        "book_copies": 1,
+        "available_copies": 1
+    }
+]

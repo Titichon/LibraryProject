@@ -1,1 +1,76 @@
-[]
+[
+    {
+        "name": "สายไหม",
+        "book_id": "B33",
+        "book_name": "lokoz",
+        "status": "returned"
+    },
+    {
+        "name": "orakanya",
+        "book_id": "B89",
+        "book_name": "oppo",
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B33",
+        "book_name": "lokoz",
+        "status": "borrowed"
+    },
+    {
+        "name": "mon",
+        "book_id": "B005",
+        "book_name": "Jhon",
+        "borrow_copies": 2,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B005",
+        "book_name": "Jhon",
+        "borrow_copies": 1,
+        "status": "borrowed"
+    },
+    {
+        "name": "ทนื",
+        "book_id": "B006",
+        "book_name": "77hd",
+        "borrow_copies": 2,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B006",
+        "book_name": "77hd",
+        "borrow_copies": 3,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B006",
+        "book_name": "77hd",
+        "borrow_copies": 0,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B006",
+        "book_name": "77hd",
+        "borrow_copies": 0,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B006",
+        "book_name": "77hd",
+        "borrow_copies": 0,
+        "status": "returned"
+    },
+    {
+        "name": "mon",
+        "book_id": "B006",
+        "book_name": "asd",
+        "borrow_copies": 0,
+        "status": "returned"
+    }
+]
